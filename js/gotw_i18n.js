@@ -1,4 +1,5 @@
-jQuery(document).ready(function() {
+$(document).ready(function() {
+	
 	loadBundles('en_US');	
 	
 	$('#dropdown-lang').change(function() {
@@ -8,8 +9,6 @@ jQuery(document).ready(function() {
 	
 });
 
-
-		
 function loadBundles(lang) {
 	jQuery.i18n.properties({
 		name:'Messages', 
