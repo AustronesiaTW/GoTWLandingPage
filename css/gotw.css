@@ -9,11 +9,25 @@
 	font-size:11px;
 }
 @media (min-width: 768px){
-
 	.bootstrap-select.btn-group {
-    padding-top: 10.25px;
+    		padding-top: 10.25px;
+	}
+}
+@media (max-width: 767px){
+
+	.bootstrap-select .btn:focus,.bootstrap-select .btn{
+		background-color: #fff !important; 
+    		border-color: #fff !important;
+    		width:auto;
+	}
+	
+	.btn-group.open .dropdown-toggle {
+        	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
+        	-moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
+        	-o-box-shadow: 0 5px 15px rgba(0,0,0,0);
+    		box-shadow: 0 5px 15px rgba(0,0,0,0);
 	}
 
-}
 
+}
 
