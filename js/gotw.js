@@ -7,7 +7,7 @@ $(document).ready(function() {
 	var lang_list = [];
 	
 	$('#dropdown-lang option').each(function(){
-		if($(this).data().lang == userLang){
+		if($(this).data().lang == userLang.replace('-','_')){
 			$(this).attr('selected',true);	
 			selection = userLang;			
 		}
