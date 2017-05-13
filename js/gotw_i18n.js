@@ -1,7 +1,4 @@
 jQuery(document).ready(function() {
-
-	$('.selectpicker').selectpicker();
-	
 	loadBundles('en_US');	
 	
 	$('#dropdown-lang').change(function() {
