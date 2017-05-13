@@ -1,0 +1,19 @@
+/*!
+ * GoTW_langing_page v1 (https://austronesiatw.github.io/GoTW_landing_page)
+*/
+
+.bootstrap-select .btn:focus {
+    outline: none !important;
+}
+.bootstrap-select .btn{
+	font-size:11px;
+}
+@media (min-width: 768px){
+
+	.bootstrap-select.btn-group {
+    padding-top: 10.25px;
+	}
+
+}
+
+
