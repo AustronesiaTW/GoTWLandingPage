@@ -2,20 +2,19 @@ $(document).ready(function() {
 	i18nHelper.Init();
 	//Get browser language 
 	var userLang = navigator.language || navigator.userLanguage; 
+	var selection = 'en_US';
 	
 	var lang_list = [];
 	
 	$('#dropdown-lang option').each(function(){
-		lang_list.push($(this).data().lang);
+		if($(this).data().lang == userLang){
+			$(this).attr('selected',true);	
+			selection = userLang;			
+		}
 	});
 	
-	if($.inArray(userLang,lang_list)){
-		$('#dropdown-lang option[data-lang="' + userLang + '"]').attr("selected",true);
-		i18nHelper.LoadBundles(userLang);
-	}else{
-		i18nHelper.LoadBundles('en_US');
-	}		
-	
+	i18nHelper.LoadBundles(selection);
+
 });
 
 var i18nHelper = {
