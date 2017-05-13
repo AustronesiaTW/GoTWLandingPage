@@ -1,6 +1,20 @@
 $(document).ready(function() {
 	i18nHelper.Init();
-	i18nHelper.LoadBundles('en_US');	
+	//Get browser language 
+	var userLang = navigator.language || navigator.userLanguage; 
+	
+	var lang_list = [];
+	
+	$('#dropdown-lang option').each(function(){
+		lang_list.append($(this).data().lang);
+	});
+	
+	if($.inArray(userLang,lang_list)){
+		$('#dropdown-lang option[data-lang=userLang]').attr("selected",true);
+		i18nHelper.LoadBundles(userLang);
+	}else{
+		i18nHelper.LoadBundles('en_US');
+	}		
 	
 });
 
@@ -8,7 +22,7 @@ var i18nHelper = {
 	Init: function(){
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
-			i18nHelper.LoadBundles(selection != 'browser' ? selection : null);
+			i18nHelper.LoadBundles(selection);
 		});
 	},
 	LoadBundles: function(lang){
