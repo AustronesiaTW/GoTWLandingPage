@@ -16,7 +16,7 @@ jQuery(document).ready(function() {
 function loadBundles(lang) {
 	jQuery.i18n.properties({
 		name:'Messages', 
-		path:'vendor/jquery-i18n/bundle/', 
+		path:'lib/jquery-i18n/bundle/', 
 		mode:'both',
 		language:lang, 
 		callback: function() {
