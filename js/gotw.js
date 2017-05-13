@@ -10,7 +10,7 @@ $(document).ready(function() {
 	});
 	
 	if($.inArray(userLang,lang_list)){
-		$('#dropdown-lang option[data-lang='" + userLang + "']').attr("selected",true);
+		$('#dropdown-lang option[data-lang="' + userLang + '"]').attr("selected",true);
 		i18nHelper.LoadBundles(userLang);
 	}else{
 		i18nHelper.LoadBundles('en_US');
