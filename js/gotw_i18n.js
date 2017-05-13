@@ -7,6 +7,10 @@ $(document).ready(function() {
 	loadBundles(selection != 'browser' ? selection : null);
 	});
 	
+	$('.bootstrap-select>.dropdown-menu a').click(function(){
+		$('.navbar-toggle')[0].click();
+	});
+	
 });
 
 function loadBundles(lang) {
