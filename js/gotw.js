@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var lang_list = [];
 	
 	$('#dropdown-lang option').each(function(){
-		lang_list.append($(this).data().lang);
+		lang_list.push($(this).data().lang);
 	});
 	
 	if($.inArray(userLang,lang_list)){
