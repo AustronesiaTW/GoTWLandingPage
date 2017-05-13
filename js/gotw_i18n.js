@@ -1,5 +1,6 @@
 $(document).ready(function() {
-	i18nHelper.Init().LoadBundles('en_US');	
+	i18nHelper.Init();
+	i18nHelper.LoadBundles('en_US');	
 	
 });
 
