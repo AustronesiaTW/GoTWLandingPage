@@ -14,10 +14,7 @@ $(document).ready(function() {
 	});
 	
 	i18nHelper.LoadBundles(selection);
-	
-	Pace.on('done',function(){
-		$('body').fadeIn(200);
-	});
+
 
 });
 
