@@ -15,7 +15,7 @@ $(document).ready(function() {
 	
 	i18nHelper.LoadBundles(selection);
 	
-	Pace.done(function(){
+	Pace.on('done',function(){
 		$('body').fadeIn(200);
 	});
 
