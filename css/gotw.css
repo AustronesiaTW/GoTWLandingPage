@@ -14,7 +14,6 @@
 	}
 }
 @media (max-width: 767px){
-
 	.bootstrap-select .btn:focus,.bootstrap-select .btn{
 		background-color: #fff !important; 
     		border-color: #fff !important;
@@ -27,7 +26,8 @@
         	-o-box-shadow: 0 5px 15px rgba(0,0,0,0);
     		box-shadow: 0 5px 15px rgba(0,0,0,0);
 	}
-
-
+}
+body{
+	display:none;
 }
 
