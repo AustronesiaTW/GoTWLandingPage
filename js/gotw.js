@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	//Pace on done
-	Pace.on('done',functon(){
+	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);	
 	});
-	
+
 	i18nHelper.Init();
 	//Get browser language 
 	var userLang = navigator.language || navigator.userLanguage; 
