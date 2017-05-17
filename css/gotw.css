@@ -36,3 +36,11 @@
 section.cta .cta-content h2 {
     max-width: 800px;
 }
+
+/*Set jumbotron font size*/
+.jumbotron.jbt-A li{
+	font-size:21px;
+}
+.jumbotron.jbt-A li>p{
+	font-size:14px;
+}
