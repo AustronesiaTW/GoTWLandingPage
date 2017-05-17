@@ -31,3 +31,8 @@
 #mainDiv{
 	display:none;
 }
+
+/*Add section header width*/
+section.cta .cta-content h2 {
+    max-width: 800px;
+}
