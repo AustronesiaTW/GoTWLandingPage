@@ -1,8 +1,5 @@
 $(document).ready(function() {
-	//Pace on done
-	Pace.on('done',function(){
-		$('#mainDiv').fadeIn(500);	
-	});
+
 
 	i18nHelper.Init();
 	//Get browser language 
@@ -15,12 +12,16 @@ $(document).ready(function() {
 		if($(this).data().lang == userLang){
 			$(this).attr('selected',true);
 			selection = userLang.replace('-','_');		
-			$('[lang]:not("option[lang]")').attr('lang',userLang);
+			$('[lang]').attr('lang',userLang);
 		}
 	});
 	
 	i18nHelper.LoadBundles(selection);
-
+	
+		//Pace on done
+	Pace.on('done',function(){
+		$('#mainDiv').fadeIn(500);	
+	});
 
 });
 
@@ -29,7 +30,7 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection.replace('-','_'));
-			$('[lang]:not("option[lang]")').attr('lang',selection);	
+			$('[lang]').attr('lang',selection);	
 		});
 	},
 	LoadBundles: function(lang){
