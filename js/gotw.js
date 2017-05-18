@@ -12,9 +12,9 @@ $(document).ready(function() {
 	var lang_list = [];
 	
 	$('#dropdown-lang option').each(function(){
-		if($(this).data().lang == userLang.replace('-','_')){
+		if($(this).data().lang == userLang){
 			$(this).attr('selected',true);
-			selection = userLang;		
+			selection = userLang.replace('-','_');		
 			$('[lang]').attr('lang',userLang);
 		}
 	});
@@ -28,7 +28,7 @@ var i18nHelper = {
 	Init: function(){
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
-			i18nHelper.LoadBundles(selection);
+			i18nHelper.LoadBundles(selection.replace('-','_'));
 			$('[lang]').attr('lang',selection);
 		});
 	},
