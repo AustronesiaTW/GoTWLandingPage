@@ -101,5 +101,10 @@ section.cta .cta-content h2 {
 
 /*set fonts*/
 .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p{
-    font-family: 'Noto Sans TC',Arial,sans-serif;
+    font-family: Catamaran,Helvetica,'Noto Sans TC',Arial,sans-serif;
+}
+.btn, .navbar-default .nav>li>a {
+    font-family: Lato,Helvetica,'Noto Sans TC',Arial,sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
