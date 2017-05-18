@@ -31,7 +31,7 @@ $(document).ready(function() {
 	$(document).click(function(event) { 
 		if(!$('.navbar-toggle').hasClass('collapsed')){
 			if(!$(event.target).closest('.navbar-collapse').length) {
-				$('.navbar-toggle').toggleClass('navbar-toggle');
+				$('.navbar-toggle').toggleClass('collapsed');
 			}    
 		} 
 	});
