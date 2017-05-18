@@ -25,7 +25,16 @@ $(document).ready(function() {
 	//Pace on done
 	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);	
-	});	
+	});
+	
+	
+	$(document).click(function(event) { 
+		if(!$('.navbar-toggle').hasClass('collapsed')){
+			if(!$(event.target).closest('.navbar-collapse').length) {
+				$('.navbar-toggle').toggleClass('navbar-toggle');
+			}    
+		} 
+	});
 
 });
 
@@ -34,7 +43,10 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection.replace('-','_'));
-			$('[lang]').attr('lang',selection);	
+			$('[lang]').attr('lang',selection);
+			
+			//Bind smartphone menu lang list click event
+			$('.navbar-toggle').addClass('collapsed');
 		});
 	},
 	LoadBundles: function(lang){
