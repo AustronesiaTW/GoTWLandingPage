@@ -13,8 +13,9 @@ $(document).ready(function() {
 	
 	$('#dropdown-lang option').each(function(){
 		if($(this).data().lang == userLang.replace('-','_')){
-			$(this).attr('selected',true);	
-			selection = userLang;			
+			$(this).attr('selected',true);
+			selection = userLang;		
+			$('[lang]').attr('lang',userLang)
 		}
 	});
 	
