@@ -44,3 +44,12 @@ section.cta .cta-content h2 {
 .jumbotron.jbt-A li>p{
 	font-size:14px;
 }
+
+
+/*import tc font*/
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+/*set fonts*/
+body {
+    font-family: Catamaran,Helvetica,'Noto Sans TC',Arial,sans-serif;
+}
