@@ -51,5 +51,5 @@ section.cta .cta-content h2 {
 
 /*set fonts*/
 .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p{
-    font-family: Catamaran,Helvetica,'Noto Sans TC',Arial,sans-serif;
+    font-family: 'Noto Sans TC',Arial,sans-serif;
 }
