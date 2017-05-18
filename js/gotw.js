@@ -34,8 +34,10 @@ var i18nHelper = {
 			i18nHelper.LoadBundles(selection.replace('-','_'));
 			$('#mainDiv [lang]').attr('lang',selection);
 			
-			//Bind smartphone menu lang list click event
-			$('.navbar-toggle').click();
+			//Bind smartphone size langList click event
+			if(!$('.navbar-collapse')).hasClass('in'){
+				$('.navbar-toggle').click();
+			}			
 		});
 	},
 	LoadBundles: function(lang){
