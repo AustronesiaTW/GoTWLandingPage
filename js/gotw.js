@@ -9,7 +9,7 @@ $(document).ready(function() {
 		if($(this).data().lang == userLang){
 			$(this).attr('selected',true);
 			selection = userLang.replace('-','_');		
-			$('#mainDiv [lang]:not(".bootstrap-select")').attr('lang',userLang);
+			$('#mainDiv [lang]:not(".bootstrap-select li")').attr('lang',userLang);
 		}
 
 	});
@@ -34,7 +34,7 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection.replace('-','_'));
-			$('#mainDiv [lang]:not("bootstrap-select")').attr('lang',selection);
+			$('#mainDiv [lang]:not(".bootstrap-select li")').attr('lang',selection);
 			
 			//Bind smartphone size langList click event
 			if($('#mainDiv .navbar-toggle:visible').length > 0){
