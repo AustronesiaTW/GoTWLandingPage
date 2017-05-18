@@ -53,8 +53,14 @@ html:lang(vn) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1,
     font-family: 'Open Sans',sans-serif;
 }
 html:lang(id) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
-    font-family: 'Open Sans',sans-serif;
-}
+    font-family: 'Open Sans',sans-seri}
+
+body 		{font-family: Catamaran,Helvetica,Arial,sans-serif}
+:lang(zh) 	{font-family: 'Noto Sans TC',sans-serif;}
+:lang(vn) 	{font-family: 'Open Sans',sans-serif;}
+:lang(id) 	{font-family: 'Open Sans',sans-serif;}
+:lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif}
+
 
 
 
