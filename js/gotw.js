@@ -34,9 +34,6 @@ $(document).ready(function() {
 
 });
 
-
-});
-
 var i18nHelper = {
 	Init: function(){
 		$('#dropdown-lang').change(function() {
