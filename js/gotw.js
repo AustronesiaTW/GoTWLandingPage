@@ -23,7 +23,8 @@ $(document).ready(function() {
 		//add lang attribute to html code which Bootstrap-select generate 
 		$('[data-original-index]').each(function(){
 			var optionIndex = $(this).data().originalIndex;
-			$(this).attr('lang',$('dropdown-lang option').eq(optionIndex).data().lang);			
+			var optionLnag = $('#dropdown-lang option').eq(optionIndex).data().lang;			
+			$(this).attr('lang',optionLnag);			
 		});
 	});
 	
