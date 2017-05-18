@@ -46,9 +46,15 @@ section.cta .cta-content h2 {
 }
 
 /*set fonts*/
-body 		   {font-family: Catamaran,Helvetica,Arial,sans-serif;}
-*[lang|="zh-TW"]   {font-family: 'Noto Sans TC',sans-serif;}
-*[lang|="vn"]      {font-family: 'Open Sans',sans-serif;}
-*[lang|="id"]      {font-family: 'Open Sans',sans-serif;}
+html:lang(zh-TW) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
+    font-family: 'Noto Sans TC',sans-serif;
+}
+html:lang(vn) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
+    font-family: 'Open Sans',sans-serif;
+}
+html:lang(id) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
+    font-family: 'Open Sans',sans-serif;
+}
+
 
 
