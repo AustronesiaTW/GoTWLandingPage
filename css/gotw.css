@@ -47,12 +47,15 @@ section.cta .cta-content h2 {
 
 /*set fonts*/
 html:lang(zh-TW) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
-    font-family: 'Open Sans',sans-serif;
+    font-family: 'Noto Sans TC',sans-serif;
 }
 html:lang(vn) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
     font-family: 'Open Sans',sans-serif;
 }
 html:lang(id) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
     font-family: 'Open Sans',sans-serif;
+}
+html:lang(en) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6 {
+    font-family: Catamaran,Helvetica,Arial,sans-serif;
 }
 
