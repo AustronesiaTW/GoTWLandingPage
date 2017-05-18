@@ -1,6 +1,10 @@
 $(document).ready(function() {
-
-
+	WebFont.load({
+	    google: {
+	      families: ['Noto Sans TC', 'Open Sans']
+	    }
+	  });
+	
 	i18nHelper.Init();
 	//Get browser language 
 	var userLang = navigator.language || navigator.userLanguage; 
@@ -16,19 +20,13 @@ $(document).ready(function() {
 		}
 	});
 	
-	i18nHelper.LoadBundles(selection);
-	
-	
+	i18nHelper.LoadBundles(selection);	
 
-		//Pace on done
-
-
-});
-
-document.fonts.ready.then(function(){
+	//Pace on done
 	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);	
 	});	
+
 });
 
 var i18nHelper = {
