@@ -46,7 +46,7 @@ var i18nHelper = {
 			$('[lang]').attr('lang',selection);
 			
 			//Bind smartphone menu lang list click event
-			$('.navbar-toggle').addClass('collapsed');
+			$('.navbar-toggle').toggleClass('collapsed');
 		});
 	},
 	LoadBundles: function(lang){
