@@ -10,13 +10,11 @@ $(document).ready(function() {
 	var userLang = navigator.language || navigator.userLanguage; 
 	var selection = 'en';
 	
-	var lang_list = [];
-	
 	$('#dropdown-lang option').each(function(){
 		if($(this).data().lang == userLang){
 			$(this).attr('selected',true);
 			selection = userLang.replace('-','_');		
-			$('[lang]').attr('lang',userLang);
+			$('#mainDiv [lang]').attr('lang',userLang);
 		}
 	});
 	
@@ -34,7 +32,7 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection.replace('-','_'));
-			$('[lang]').attr('lang',selection);
+			$('#mainDiv [lang]').attr('lang',selection);
 			
 			//Bind smartphone menu lang list click event
 			$('.navbar-toggle').click();
