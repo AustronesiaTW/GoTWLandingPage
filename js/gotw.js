@@ -26,15 +26,6 @@ $(document).ready(function() {
 	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);	
 	});
-	
-	
-	$(document).click(function(event) { 
-		if(!$('.navbar-toggle').hasClass('collapsed')){
-			if(!$(event.target).closest('.navbar-collapse').length) {
-				$('.navbar-toggle').toggleClass('collapsed');
-			}    
-		} 
-	});
 
 });
 
@@ -46,7 +37,7 @@ var i18nHelper = {
 			$('[lang]').attr('lang',selection);
 			
 			//Bind smartphone menu lang list click event
-			$('.navbar-toggle').toggleClass('collapsed');
+			$('.navbar-toggle').click();
 		});
 	},
 	LoadBundles: function(lang){
