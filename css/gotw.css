@@ -46,11 +46,11 @@ section.cta .cta-content h2 {
 }
 
 /*set fonts*/
-body 		{font-family: Catamaran,Helvetica,Arial,sans-serif; !important}
-:lang(zh) 	{font-family: 'Noto Sans TC',sans-serif; !important}
-:lang(vn) 	{font-family: 'Open Sans',sans-serif; !important}
-:lang(id) 	{font-family: 'Open Sans',sans-serif; !important}
-:lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif !important}
+body 		{font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
+:lang(zh) 	{font-family: 'Noto Sans TC',sans-serif !important;}
+:lang(vn) 	{font-family: 'Open Sans',sans-serif !important;}
+:lang(id) 	{font-family: 'Open Sans',sans-serif !important;}
+:lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
 
 
 
