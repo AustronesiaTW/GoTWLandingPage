@@ -35,7 +35,7 @@ var i18nHelper = {
 			$('#mainDiv [lang]').attr('lang',selection);
 			
 			//Bind smartphone size langList click event
-			if($('#mainDiv .navbar-toggle:visible').length == 0){
+			if($('#mainDiv .navbar-toggle:visible').length > 0){
 				$('.navbar-toggle').click();
 			}			
 		});
