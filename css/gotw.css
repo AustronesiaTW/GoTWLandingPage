@@ -45,21 +45,14 @@ section.cta .cta-content h2 {
 	font-size:14px;
 }
 
-/*set fonts*/
-html:lang(zh-TW) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
-    font-family: 'Noto Sans TC',sans-serif;
-}
-html:lang(vn) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
-    font-family: 'Open Sans',sans-serif;
-}
-html:lang(id) .navbar-default, .navbar-default .navbar-header .navbar-brand, h1, h2, h3, h4, h5, h6, ul, li, p, .btn, a{
-    font-family: 'Open Sans',sans-seri}
-
-body 		{font-family: Catamaran,Helvetica,Arial,sans-serif}
-:lang(zh) 	{font-family: 'Noto Sans TC',sans-serif;}
-:lang(vn) 	{font-family: 'Open Sans',sans-serif;}
-:lang(id) 	{font-family: 'Open Sans',sans-serif;}
-:lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif}
+/*set fonts
+this selector will only work for elements which carry a lang attribute
+*/
+body 		{font-family: Catamaran,Helvetica,Arial,sans-serif,'Noto Sans TC','Open Sans' !important;}
+*[lang|="zh"] 	{font-family: '微軟正黑體',sans-serif !important;}
+*[lang|="vn"] 	{font-family: 'Open Sans',sans-serif !important;}
+*[lang|="id"] 	{font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
+*[lang|="en"]   {font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
 
 
 

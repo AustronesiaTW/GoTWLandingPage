@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">    
 
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
@@ -49,7 +48,8 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle navigation</span> Menu 
+                        <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand page-scroll" href="#page-top">GoTW</a>
                 </div>
@@ -68,10 +68,10 @@
                         </li>
                         <li>
                             <select class="selectpicker" id="dropdown-lang" data-width="fit">
-                                <option data-lang="en_US" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-                                <option data-lang="zh_TW" data-content='<span class="flag-icon flag-icon-tw"></span> 繁體中文'>繁體中文</option>
-                                <option data-lang="vn" data-content='<span class="flag-icon flag-icon-vn"></span> tiếng việt'>tiếng việt</option>
-                                <option data-lang="id" data-content='<span class="flag-icon flag-icon-id"></span> Bahasa Indonesia'>Bahasa Indonesia</option>
+                                <option data-lang="en" lang="en" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                <option data-lang="zh-TW" lang="zh" data-content='<span class="flag-icon flag-icon-tw"></span> 繁體中文'>繁體中文</option>
+                                <option data-lang="vn" lang="vn" data-content='<span class="flag-icon flag-icon-vn"></span> tiếng việt'>tiếng việt</option>
+                                <option data-lang="id" lang="id" data-content='<span class="flag-icon flag-icon-id"></span> Bahasa Indonesia'>Bahasa Indonesia</option>
                             </select>
                         </li>
                     </ul>
@@ -247,10 +247,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="lib/jquery-i18n/js/jquery.i18n.properties.min.js"></script>
     <script src="lib/pace/pace.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
-    <script src="js/gotw.js"></script>
+    <!--Read i18nHelper.js first than other theme .js-->
+    <script src="js/i18nHelper.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 
