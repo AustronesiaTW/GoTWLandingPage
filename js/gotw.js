@@ -29,7 +29,7 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection);
-			$('[lang]').attr('lang',userLang)
+			$('[lang]').attr('lang',selection);
 		});
 	},
 	LoadBundles: function(lang){
