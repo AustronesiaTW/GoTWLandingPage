@@ -7,7 +7,7 @@ $(document).ready(function() {
 	i18nHelper.Init();
 	//Get browser language 
 	var userLang = navigator.language || navigator.userLanguage; 
-	var selection = 'en_US';
+	var selection = 'en';
 	
 	var lang_list = [];
 	
@@ -15,7 +15,7 @@ $(document).ready(function() {
 		if($(this).data().lang == userLang){
 			$(this).attr('selected',true);
 			selection = userLang.replace('-','_');		
-			$('[lang]').attr('lang',userLang);
+			$('[lang]:not("option[lang]")').attr('lang',userLang);
 		}
 	});
 	
@@ -29,7 +29,7 @@ var i18nHelper = {
 		$('#dropdown-lang').change(function() {
 			var selection = $('#dropdown-lang option:selected').data().lang;
 			i18nHelper.LoadBundles(selection.replace('-','_'));
-			$('[lang]').attr('lang',selection);
+			$('[lang]:not("option[lang]")').attr('lang',selection);	
 		});
 	},
 	LoadBundles: function(lang){
