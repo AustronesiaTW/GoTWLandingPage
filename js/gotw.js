@@ -1,10 +1,5 @@
 $(document).ready(function() {
-	WebFont.load({
-	    google: {
-	      families: ['Noto Sans TC', 'Open Sans']
-	    }
-	  });
-	
+
 	i18nHelper.Init();
 	//Get browser language 
 	var userLang = navigator.language || navigator.userLanguage; 
@@ -16,23 +11,28 @@ $(document).ready(function() {
 			selection = userLang.replace('-','_');		
 			$('#mainDiv [lang]').attr('lang',userLang);
 		}
-		
-		//add lang attribute to html code which Bootstrap-select generate 
-		var optionIndex = $(this)[0].selectedIndex;
-		
-		$(document).bind('DOMNodeInserted', optionIndex, function() {
-			$('[data-original-index]').eq(optionIndex).attr('lang',userLang);
-		});
+
 	});
 	
 	i18nHelper.LoadBundles(selection);	
 
 	//Pace on done
 	Pace.on('done',function(){
-		$('#mainDiv').fadeIn(500);	
+		$('#mainDiv').fadeIn(500);
+		
+		//add lang attribute to html code which Bootstrap-select generate 
+		$('[data-original-index]').each(function(){
+			var optionIndex = $(this).data().originalIndex;
+			$(this).attr('lang',$('dropdown-lang option').eq(optionIndex).data().lang);			
+		});
 	});
+	
+	
 
 });
+
+
+
 
 var i18nHelper = {
 	Init: function(){
