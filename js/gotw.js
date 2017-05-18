@@ -12,7 +12,7 @@ $(document).ready(function() {
 	var lang_list = [];
 	
 	$('#dropdown-lang option').each(function(){
-		if($(this).data().lang == userLang){
+		if($(this).attr('lang') == userLang){
 			$(this).attr('selected',true);
 			selection = userLang.replace('-','_');		
 			$('[lang]:not("option[lang]")').attr('lang',userLang);
@@ -27,7 +27,7 @@ $(document).ready(function() {
 var i18nHelper = {
 	Init: function(){
 		$('#dropdown-lang').change(function() {
-			var selection = $('#dropdown-lang option:selected').data().lang;
+			var selection = $('#dropdown-lang option:selected').attr('lang');
 			i18nHelper.LoadBundles(selection.replace('-','_'));
 			$('[lang]:not("option[lang]")').attr('lang',selection);	
 		});
