@@ -16,6 +16,13 @@ $(document).ready(function() {
 			selection = userLang.replace('-','_');		
 			$('#mainDiv [lang]').attr('lang',userLang);
 		}
+		
+		//add lang attribute to html code which Bootstrap-select generate 
+		var optionIndex = $(this)[0].selectedIndex;
+		
+		$(document).bind('DOMNodeInserted', optionIndex, function() {
+			$('[data-original-index]').eq(optionIndex).attr('lang',userLang);
+		});
 	});
 	
 	i18nHelper.LoadBundles(selection);	
@@ -24,6 +31,9 @@ $(document).ready(function() {
 	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);	
 	});
+
+});
+
 
 });
 
