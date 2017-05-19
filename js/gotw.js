@@ -14,18 +14,19 @@ $(document).ready(function() {
 
 	});
 	
-	i18nHelper.LoadBundles(selection);	
+	i18nHelper.LoadBundles(selection);
+	
+		
+	//add lang attribute to html code which Bootstrap-select generate 
+	$('[data-original-index]').each(function(){
+		var optionIndex = $(this).data().originalIndex;
+		var optionLnag = $('#dropdown-lang option').eq(optionIndex).data().lang;			
+		$(this).attr('lang',optionLnag);			
+	});
 
 	//Pace on done
 	Pace.on('done',function(){
 		$('#mainDiv').fadeIn(500);
-		
-		//add lang attribute to html code which Bootstrap-select generate 
-		$('[data-original-index]').each(function(){
-			var optionIndex = $(this).data().originalIndex;
-			var optionLnag = $('#dropdown-lang option').eq(optionIndex).data().lang;			
-			$(this).attr('lang',optionLnag);			
-		});
 	});
 });
 
