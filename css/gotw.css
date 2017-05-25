@@ -45,14 +45,19 @@ section.cta .cta-content h2 {
 	font-size:14px;
 }
 
+/*set social-mail color*/
+section.contact ul.list-social li.social-mail a {
+    background-color: #e03a5d;
+}
+
 /*set fonts
 this selector will only work for elements which carry a lang attribute
 */
 body 		{font-family: Catamaran,Helvetica,Arial,sans-serif,'Noto Sans TC','Open Sans' !important;}
-*[lang|="zh"] 	{font-family: '微軟正黑體',sans-serif !important;}
-*[lang|="vn"] 	{font-family: 'Open Sans',sans-serif !important;}
-*[lang|="id"] 	{font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
-*[lang|="en"]   {font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
+:lang(zh) 	{font-family: '微軟正黑體',sans-serif !important;}
+:lang(vn) 	{font-family: 'Open Sans',sans-serif !important;}
+:lang(id) 	{font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
+:lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
 
 
 
