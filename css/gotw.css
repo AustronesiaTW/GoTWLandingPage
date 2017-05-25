@@ -47,8 +47,20 @@ section.cta .cta-content h2 {
 
 /*set social-mail color*/
 section.contact ul.list-social li.social-mail a {
-    background-color: #e03a5d;
+	background-color: #e03a5d;
 }
+
+/*change header bg color */
+header{
+	background: url(../img/bg-pattern.png),linear-gradient(to left,#247069,#16548d);
+}
+/* set #download bg color*/
+.bg-primary {
+    background: #fdcc52;
+    background: -webkit-linear-gradient(#fdcc52,#edd170);
+    background: linear-gradient(#fdcc52,#edd170);
+}
+
 
 /*set fonts
 this selector will only work for elements which carry a lang attribute
