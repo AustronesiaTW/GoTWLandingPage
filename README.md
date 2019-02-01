@@ -1,4 +1,4 @@
-# [GoTW](https://austronesiatw.github.io/GoTW_landing_page/)
+# [GoTW](https://austronesiatw.github.io/GoTWLandingPage/)
 The site cloned from [New Age](http://startbootstrap.com/template-overviews/new-age/) bootstrap. A landing page for GoTW mobile application.
 
 ## Copyright and License
