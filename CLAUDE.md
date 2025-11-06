@@ -65,7 +65,7 @@ The site implements lightweight internationalization with automatic language det
 5. Updates `lang` attributes on relevant elements
 
 **Only used on**: `index.html` (main landing page)
-**Static content**: privacy.html, tos.html, facebook-data-deletion.html use hardcoded text
+**Static content**: privacy.html, term-of-service.html, facebook-data-deletion.html use hardcoded text
 
 **Adding new languages**:
 1. Add new language object to the `translations` constant in `js/i18n.js`
@@ -76,7 +76,7 @@ The site implements lightweight internationalization with automatic language det
 
 - `index.html` - Main landing page with sections: header, download, features, contact (uses i18n)
 - `privacy.html` - Privacy policy page (static Chinese content)
-- `tos.html` - Terms of Service page (static Chinese content)
+- `term-of-service.html` - Terms of Service page (static Chinese content)
 - `facebook-data-deletion.html` - Facebook data deletion instructions (static bilingual content)
 - `js/index.js` - Page initialization
 - `js/i18n.js` - Lightweight internationalization module with auto-detection

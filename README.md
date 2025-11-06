@@ -69,7 +69,7 @@ npx http-server -p 8000
 ```
 ├── index.html                      # 主要推廣頁面
 ├── privacy.html                    # 隱私權政策
-├── tos.html                        # 服務條款
+├── term-of-service.html            # 服務條款
 ├── facebook-data-deletion.html     # Facebook 資料刪除說明
 ├── gulpfile.js                     # Gulp 建置設定
 ├── package.json                    # NPM 相依套件
@@ -86,7 +86,7 @@ npx http-server -p 8000
 
 - **首頁** (`index.html`)：應用程式介紹、功能展示、下載連結
 - **隱私權政策** (`privacy.html`)：個人資料收集與使用說明
-- **服務條款** (`tos.html`)：使用條款、責任限制、法律聲明
+- **服務條款** (`term-of-service.html`)：使用條款、責任限制、法律聲明
 - **資料刪除** (`facebook-data-deletion.html`)：Facebook 平台資料刪除指示
 
 ## 開發注意事項

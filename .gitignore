@@ -10,3 +10,6 @@
 # Temporary files
 *~
 .tmp/
+
+
+.claude/
