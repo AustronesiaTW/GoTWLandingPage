@@ -68,17 +68,17 @@ p {
   font-weight: 200;
   letter-spacing: 1px;
 }
-.navbar-default .navbar-header .navbar-brand {
+.navbar-default .navbar-brand {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
   color: #fdcc52;
 }
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
   color: #fcbd20;
 }
-.navbar-default .navbar-header .navbar-toggle {
+.navbar-default .navbar-toggle {
   font-size: 12px;
   color: #222222;
   padding: 8px 10px;
@@ -87,7 +87,7 @@ p {
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .navbar-default .nav > li > a,
 .navbar-default .nav > li > a:focus {
@@ -111,11 +111,11 @@ p {
     background-color: transparent;
     border-color: transparent;
   }
-  .navbar-default .navbar-header .navbar-brand {
+  .navbar-default .navbar-brand {
     color: rgba(255, 255, 255, 0.7);
   }
-  .navbar-default .navbar-header .navbar-brand:hover,
-  .navbar-default .navbar-header .navbar-brand:focus {
+  .navbar-default .navbar-brand:hover,
+  .navbar-default .navbar-brand:focus {
     color: white;
   }
   .navbar-default .nav > li > a,
@@ -126,23 +126,23 @@ p {
   .navbar-default .nav > li > a:focus:hover {
     color: white;
   }
-  .navbar-default.affix {
+  .navbar-shrink {
     background-color: white;
     border-color: rgba(34, 34, 34, 0.1);
   }
-  .navbar-default.affix .navbar-header .navbar-brand {
+  .navbar-shrink .navbar-brand {
     color: #222222;
   }
-  .navbar-default.affix .navbar-header .navbar-brand:hover,
-  .navbar-default.affix .navbar-header .navbar-brand:focus {
+  .navbar-shrink .navbar-brand:hover,
+  .navbar-shrink .navbar-brand:focus {
     color: #fdcc52;
   }
-  .navbar-default.affix .nav > li > a,
-  .navbar-default.affix .nav > li > a:focus {
+  .navbar-shrink .nav > li > a,
+  .navbar-shrink .nav > li > a:focus {
     color: #222222;
   }
-  .navbar-default.affix .nav > li > a:hover,
-  .navbar-default.affix .nav > li > a:focus:hover {
+  .navbar-shrink .nav > li > a:hover,
+  .navbar-shrink .nav > li > a:focus:hover {
     color: #fdcc52;
   }
 }

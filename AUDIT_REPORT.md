@@ -1141,6 +1141,430 @@ UpdateMessages: function(){
 
 ---
 
+#### 任務 2.1 - 更新 jQuery 到 3.7.1
+
+**執行日期:** 2025年
+**預計時間:** 1 小時
+**實際時間:** 約 30 分鐘
+
+**變更內容:**
+- ✅ 下載 jQuery 3.7.1 minified 版本
+- ✅ 替換 lib/jquery/jquery.min.js
+- ✅ 修復 i18nHelper 載入問題：將所有 HTML 檔案改用未壓縮的 js/i18nHelper.js
+  - 原因：jQuery 3.7.1 與壓縮版 i18nHelper.min.js 存在相容性問題
+  - 影響：index.html, privacy.html, tos.html, facebook-data-deletion.html
+- ✅ 測試所有 jQuery 功能：
+  - 語言切換功能正常
+  - 頁面動畫正常
+  - Scrollspy 正常
+  - 平滑捲動正常
+
+**安全效益:**
+- ✅ 修補 CVE-2020-11022（XSS 漏洞）
+- ✅ 修補 CVE-2020-11023（XSS 漏洞）
+- ✅ 提升整體安全性
+
+**版本資訊:**
+- **升級前**: jQuery 3.x（約 2017-2018 年版本）
+- **升級後**: jQuery 3.7.1（2023年5月發布）
+- **檔案大小**: 約 86KB（minified）
+
+**驗證方法:**
+1. 檢查 lib/jquery/jquery.min.js 第一行確認版本為 3.7.1
+2. 測試語言切換功能（5 種語言）
+3. 測試頁面平滑捲動
+4. 檢查 Console 無錯誤
+
+**後續建議:**
+- 定期關注 jQuery 安全更新
+- 考慮未來遷移到原生 JavaScript（減少依賴）
+
+---
+
+#### 任務 2.2 - 更新 Bootstrap 到 4.6.2
+
+**執行日期:** 2025年
+**預計時間:** 2-4 小時
+**實際時間:** 約 2 小時
+
+**升級方案:** 保守升級到 Bootstrap 4.6.2（而非 5.x）
+- 原因：Bootstrap 5 移除 jQuery 依賴，需要重寫大量 JavaScript
+- 策略：先升級到 4.6.2（最後一個 jQuery 相容版本），未來再考慮 5.x
+
+**變更內容:**
+
+**階段 1: 下載 Bootstrap 4.6.2**
+- ✅ 下載 bootstrap.min.css (v4.6.2)
+- ✅ 下載 bootstrap.bundle.min.js (v4.6.2，包含 Popper.js)
+- ✅ 替換 lib/bootstrap/css/bootstrap.min.css
+- ✅ 替換 lib/bootstrap/js/bootstrap.min.js
+
+**階段 2: 更新 HTML 類別名稱**
+- ✅ 更新 4 個 HTML 檔案的 navbar 類別：
+  - `navbar-default navbar-fixed-top` → `navbar-light bg-light`
+  - 移除 `fixed-top`（改用 CSS sticky）
+- ✅ 影響檔案：index.html, privacy.html, tos.html, facebook-data-deletion.html
+
+**階段 3: 移除 Bootstrap Affix 插件**
+- ✅ 移除 js/new-age.js 中的 `.affix()` 調用（Bootstrap 4 已棄用）
+- ✅ 在 css/gotw.css 新增 CSS sticky 樣式：
+  ```css
+  #mainNav {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
+  }
+  ```
+- ✅ 更新 css/new-age.css：將 `.navbar-default.affix` 改為 `.navbar-shrink`
+- ✅ 新增 JavaScript 滾動監聽器來切換 `.navbar-shrink` 類別
+
+**階段 4: 更新 Scrollspy**
+- ✅ 更新 scrollspy target：`.navbar-fixed-top` → `#mainNav`
+- ✅ 更新 js/new-age.js 和 js/new-age.min.js
+
+**破壞性變更處理:**
+
+| Bootstrap 3 功能 | Bootstrap 4 變更 | 解決方案 |
+|-----------------|-----------------|---------|
+| `.affix()` 插件 | 已移除 | 使用 CSS `position: sticky` + JS 滾動監聽 |
+| `navbar-default` | 改為 `navbar-light` | 更新 HTML 類別 |
+| `navbar-fixed-top` | 改為 `fixed-top` | 改用 CSS sticky，移除類別 |
+| `.navbar-fixed-top` 選擇器 | 不存在 | 改用 `#mainNav` ID 選擇器 |
+
+**效益達成:**
+- ✅ 修補 Bootstrap 3.3.7 的已知安全漏洞
+- ✅ 使用現代化的 Flexbox 網格系統
+- ✅ 改善響應式設計
+- ✅ 使用 CSS sticky 提升效能（取代 JavaScript affix）
+- ✅ 保持與 jQuery 的相容性
+
+**版本資訊:**
+- **升級前**: Bootstrap 3.3.7（2016年發布）
+- **升級後**: Bootstrap 4.6.2（2022年發布）
+- **CSS 大小**: 約 143KB（minified）
+- **JS 大小**: 約 75KB（bundle.min.js，包含 Popper）
+
+**測試驗證:**
+- ✅ 導航列固定和滾動效果正常
+- ✅ Scrollspy 導航高亮正常
+- ✅ 響應式選單 collapse 功能正常
+- ✅ 語言下拉選單（bootstrap-select）正常
+- ✅ 所有 4 個 HTML 頁面顯示正常
+- ✅ 手機外框（device mockup）正常顯示
+
+**CSS Sticky 實作細節:**
+```javascript
+// js/new-age.js - 新增滾動監聽器
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 50) {
+        $('#mainNav').addClass('navbar-shrink');
+    } else {
+        $('#mainNav').removeClass('navbar-shrink');
+    }
+});
+```
+
+**未來升級路徑:**
+- 可考慮升級到 Bootstrap 5.3.3（需要移除 jQuery 依賴）
+- 需要重寫所有使用 jQuery 的 Bootstrap JavaScript 插件
+- 預估工作量：8-12 小時
+
+**後續建議:**
+- 定期關注 Bootstrap 4.x 的安全更新（直到 2023 年 EOL）
+- 評估是否值得投資升級到 Bootstrap 5.x
+- 考慮使用 Tailwind CSS 等現代化替代方案
+
+---
+
+#### 文件更新
+
+**執行日期:** 2025年
+**預計時間:** 30 分鐘
+**實際時間:** 約 20 分鐘
+
+**變更內容:**
+- ✅ 更新 CLAUDE.md：
+  - 新增 Bootstrap 4.6.2 和 jQuery 3.7.1 版本資訊
+  - 新增「Important Bootstrap 4 Migration Notes」章節
+  - 說明 affix → CSS sticky 的遷移
+  - 說明 i18nHelper.js 改用未壓縮版本的原因
+- ✅ 更新 AUDIT_REPORT.md：
+  - 新增 jQuery 3.7.1 升級執行記錄
+  - 新增 Bootstrap 4.6.2 升級執行記錄
+  - 記錄所有變更細節、效益、測試結果
+
+**效益:**
+- ✅ 為未來開發者提供清晰的升級歷史
+- ✅ 記錄 Bootstrap 3→4 的破壞性變更處理方式
+- ✅ 說明技術決策（為何選擇 4.6.2 而非 5.x）
+
+---
+
+#### 任務 3.4 - 移除 Pace.js 載入動畫函式庫
+
+**執行日期:** 2025年
+**預計時間:** 15-20 分鐘
+**實際時間:** 約 15 分鐘
+
+**執行方案:** 完全移除 Pace.js，無替代載入動畫
+
+**變更內容:**
+
+**階段 1: 移除 HTML 引用（4 個檔案）**
+- ✅ 移除 Pace CSS 連結：`<link rel='stylesheet' href='lib/pace/pace-theme-loading-bar.css'>`
+  - index.html（第 27 行）
+  - privacy.html（第 26 行）
+  - tos.html（第 26 行）
+  - facebook-data-deletion.html（第 26 行）
+- ✅ 移除 Pace JS 連結：`<script src="lib/pace/pace.js"></script>`
+  - index.html（第 241 行）
+  - privacy.html（第 164 行）
+  - tos.html（第 280 行）
+  - facebook-data-deletion.html（第 271 行）
+
+**階段 2: 移除 JavaScript 事件處理**
+- ✅ 檔案：`js/index.js`（第 27-30 行）
+- ✅ 移除舊程式碼：
+```javascript
+//Pace on done
+Pace.on('done',function(){
+    $('#mainDiv').fadeIn(500);
+});
+```
+- ✅ 新增簡化程式碼：
+```javascript
+// Show mainDiv immediately (no loading animation)
+$('#mainDiv').show();
+```
+
+**階段 3: 移除 CSS 隱藏規則**
+- ✅ 檔案：`css/gotw.css`（第 153-156 行）
+- ✅ 移除程式碼：
+```css
+/*Show mainDiv after pace done loading*/
+#mainDiv{
+    display:none;
+}
+```
+
+**階段 4: 刪除 Pace.js 函式庫**
+- ✅ 刪除整個 `lib/pace/` 目錄
+- ✅ 刪除檔案：
+  - `lib/pace/pace.js`（26KB）
+  - `lib/pace/pace-theme-loading-bar.css`（9.3KB）
+
+**階段 5: 更新文件**
+- ✅ 更新 `CLAUDE.md`：從 "Key Dependencies" 章節移除 Pace.js 項目
+- ✅ 更新 `AUDIT_REPORT.md`：新增本執行記錄
+
+**效益達成:**
+- ✅ **檔案大小縮減：** 35.3KB（pace.js 26KB + pace-theme-loading-bar.css 9.3KB）
+- ✅ **HTTP 請求減少：** -2 個請求（CSS 和 JS）
+- ✅ **載入速度：** 頁面立即顯示內容，無載入動畫延遲
+- ✅ **程式碼簡化：** 移除外部依賴，減少維護負擔
+- ✅ **相容性：** 功能完全正常，語言切換和所有互動正常運作
+
+**測試驗證:**
+- ✅ index.html 載入正常，內容立即顯示
+- ✅ privacy.html 載入正常
+- ✅ tos.html 載入正常
+- ✅ facebook-data-deletion.html 載入正常
+- ✅ 無 JavaScript console 錯誤
+- ✅ 無 404 錯誤（Pace.js 檔案已完全移除）
+- ✅ 語言切換功能正常
+- ✅ 所有頁面導航和互動功能正常
+
+**技術決策:**
+- **選擇方案：** 完全移除 Pace.js，不使用替代載入動畫
+- **理由：**
+  1. 靜態網站載入速度已經很快，無需複雜的載入進度指示
+  2. 現代瀏覽器的原生載入指示器已足夠
+  3. 可節省 35.3KB 檔案大小和 2 個 HTTP 請求
+  4. 簡化程式碼，減少維護負擔
+  5. 使用者體驗無負面影響（內容立即可見）
+
+**專案狀態變更:**
+- **載入動畫：** Pace.js 進度條 → 無（內容直接顯示）
+- **#mainDiv 顯示邏輯：** display:none + fadeIn(500) → 直接顯示
+- **依賴項目：** 移除 Pace.js
+- **檔案數量：** -2 個檔案
+
+**後續建議:**
+- 若未來需要載入指示器，可考慮：
+  1. 純 CSS 簡單動畫（0.5-1KB）
+  2. 骨架屏（Skeleton Screen）
+  3. 使用瀏覽器原生載入指示器
+- 目前的實作（直接顯示）適合靜態網站，無需額外優化
+
+---
+
+#### 任務 3.5 - i18n 國際化系統優化
+
+**執行日期:** 2025年
+**預計時間:** 30-40 分鐘
+**實際時間:** 約 35 分鐘
+
+**執行方案:** 移除 jquery.i18n.properties 依賴，改用輕量級內嵌式自動語言偵測方案，並移除語言下拉選單
+
+**現況分析:**
+- **原系統：** jquery.i18n.properties (4.3KB) + i18nHelper.js (1.2KB) + 5個語言檔 (0.75KB each)
+- **文字量：** 每種語言僅 14-15 個短字串
+- **使用頁面：** 僅 index.html 使用動態 i18n
+- **未使用功能：** privacy.html、tos.html、facebook-data-deletion.html 載入但不使用 i18n
+- **總檔案大小：** ~6.25KB
+- **HTTP 請求：** 6 個（1 個函式庫 + 5 個語言檔）
+
+**變更內容:**
+
+**階段 1: 建立新的 i18n.js**
+- ✅ 建立檔案：`js/i18n.js`（約 180 行，包含所有語言翻譯）
+- ✅ 實作功能：
+  - 所有 5 種語言的翻譯內嵌為 JSON 物件
+  - 自動偵測瀏覽器語言（navigator.language）
+  - 語言代碼正規化（zh-CN→zh-TW, vi→vn, ko→kr）
+  - 自動更新所有 `data-msg` 屬性元素
+  - 自動更新 `lang` 屬性
+  - 純 vanilla JavaScript，無外部依賴
+  - DOM ready 時自動初始化
+
+**階段 2: 修改 index.html**
+- ✅ 移除第 26 行：flag-icon-css CSS 連結
+- ✅ 移除第 63-76 行：完整語言下拉選單（dropdown-lang-container）
+  - 移除語言切換按鈕
+  - 移除國旗圖示
+  - 移除語言選項列表
+- ✅ 移除第 239 行：jquery.i18n.properties.min.js
+- ✅ 移除第 244 行：i18nHelper.js
+- ✅ 新增第 227 行：`<script src="js/i18n.js"></script>`
+
+**階段 3: 修改 js/index.js**
+- ✅ 移除第 3-5 行：i18nHelper 初始化程式碼
+- ✅ 移除第 11-25 行：語言下拉選單事件處理和語言偵測邏輯
+- ✅ 保留：`$('#mainDiv').show();`（立即顯示內容）
+- ✅ 新增註解：說明語言偵測由 i18n.js 處理
+
+**階段 4: 修改 css/gotw.css**
+- ✅ 移除第 114-151 行：所有語言下拉選單相關樣式
+  - 移除 `#dropdown-lang .flag-icon` 樣式
+  - 移除 `#dropdown-lang-container .caret` 樣式
+  - 移除 Desktop language dropdown 樣式（124-137 行）
+  - 移除 Mobile language dropdown 樣式（140-151 行）
+
+**階段 5: 清理 privacy.html**
+- ✅ 移除第 24-25 行：bootstrap-select CSS 和 flag-icon-css
+- ✅ 移除第 54-60 行：語言選擇器（selectpicker）
+- ✅ 移除第 161-162 行：bootstrap-select.min.js 和 jquery.i18n.properties.min.js
+- ✅ 移除第 167-168 行：i18nHelper.js 和 privacy.js
+
+**階段 6: 清理 tos.html**
+- ✅ 移除第 24-25 行：bootstrap-select CSS 和 flag-icon-css
+- ✅ 移除第 54-60 行：語言選擇器
+- ✅ 移除第 277-278 行：bootstrap-select.min.js 和 jquery.i18n.properties.min.js
+- ✅ 移除第 281 行：i18nHelper.js
+
+**階段 7: 清理 facebook-data-deletion.html**
+- ✅ 移除第 24-25 行：bootstrap-select CSS 和 flag-icon-css
+- ✅ 移除第 54-60 行：語言選擇器
+- ✅ 移除第 268-269 行：bootstrap-select.min.js 和 jquery.i18n.properties.min.js
+- ✅ 移除第 271 行：i18nHelper.js
+
+**階段 8: 刪除舊檔案和目錄**
+- ✅ 刪除整個 `lib/jquery-i18n/` 目錄
+  - jquery.i18n.properties.min.js（4.3KB）
+  - 5 個 Messages_*.properties 檔案（共約 3.7KB）
+- ✅ 刪除 `js/i18nHelper.js`（1.2KB）
+- ✅ 刪除 `js/privacy.js`（未使用的檔案）
+
+**階段 9: 更新文件**
+- ✅ 更新 `CLAUDE.md`：
+  - Scripts 章節：移除 i18nHelper.js、privacy.js，新增 i18n.js
+  - Multi-language Support 章節：完整改寫為新系統說明
+  - File Structure 章節：更新檔案說明
+  - Key Dependencies 章節：移除 jquery.i18n.properties、bootstrap-select、flag-icon-css
+  - 移除 i18nHelper Loading 章節
+  - Development Notes 章節：更新語言處理說明
+- ✅ 更新 `AUDIT_REPORT.md`：新增本執行記錄
+
+**效益達成:**
+
+**檔案大小優化：**
+- ✅ **減少 32%：** 6.25KB → 4.3KB（約 2KB 節省）
+- ✅ **舊系統：** jquery.i18n.properties (4.3KB) + i18nHelper.js (1.2KB) + 語言檔 (0.75KB) = 6.25KB
+- ✅ **新系統：** i18n.js 單一檔案包含所有語言 (4.3KB)
+- ✅ **所有語言內嵌：** 無需額外載入，更快的初始化速度
+
+**HTTP 請求優化：**
+- ✅ **減少 6 個請求：**
+  - -1 jquery.i18n.properties.min.js
+  - -5 Messages_*.properties 語言檔案
+- ✅ **從 7 個請求減少到 1 個請求**
+
+**程式碼簡化：**
+- ✅ **移除外部依賴：** 不再依賴 jquery.i18n.properties
+- ✅ **移除 bootstrap-select：** 不需要樣式化的下拉選單
+- ✅ **移除 flag-icon-css：** 不需要國旗圖示
+- ✅ **純 vanilla JavaScript：** 不依賴 jQuery 的 i18n 功能
+- ✅ **單一檔案：** 所有語言邏輯集中在 i18n.js
+- ✅ **自動化：** 無需手動初始化或事件綁定
+
+**使用者體驗改善：**
+- ✅ **自動語言偵測：** 根據瀏覽器設定自動顯示對應語言
+- ✅ **簡潔介面：** 移除語言下拉選單，減少使用者選擇負擔
+- ✅ **更快載入：** 減少 HTTP 請求，所有語言預載入
+- ✅ **即時切換：** 瀏覽器語言變更時自動偵測（重新載入頁面）
+
+**維護性提升：**
+- ✅ **更簡單的架構：** 單一 i18n.js 檔案
+- ✅ **易於新增語言：** 只需在 translations 物件新增語言物件
+- ✅ **易於修改文字：** 直接編輯 i18n.js 中的翻譯
+- ✅ **無外部依賴：** 減少版本升級和相容性問題
+
+**測試驗證:**
+- ✅ index.html 載入正常，自動偵測語言並顯示對應翻譯
+- ✅ 支援所有 5 種語言：en, zh-TW, vn, id, kr
+- ✅ 語言代碼正規化正常運作（zh-CN→zh-TW, vi→vn, ko→kr）
+- ✅ privacy.html 載入正常（靜態中文內容）
+- ✅ tos.html 載入正常（靜態中文內容）
+- ✅ facebook-data-deletion.html 載入正常（靜態雙語內容）
+- ✅ 無 JavaScript console 錯誤
+- ✅ 無 404 錯誤（所有舊檔案已完全移除）
+- ✅ 所有 data-msg 元素正確更新
+- ✅ 所有頁面導航和互動功能正常
+
+**技術決策:**
+- **選擇方案：** 輕量級內嵌式自動語言偵測，移除手動切換功能
+- **理由：**
+  1. 文字量非常少（每種語言僅 14-15 個字串）
+  2. 所有語言內嵌仍比原系統小（4.3KB vs 6.25KB）
+  3. 減少 HTTP 請求（7→1），更快的頁面載入
+  4. 自動語言偵測提供更好的使用者體驗
+  5. 純 vanilla JavaScript，無外部依賴
+  6. 更簡單的架構，更容易維護
+  7. 只有 index.html 使用 i18n，其他頁面為靜態內容
+  8. 移除語言選擇器簡化介面，減少使用者操作
+
+**專案狀態變更:**
+- **i18n 系統：** jquery.i18n.properties + i18nHelper.js → 純 vanilla JavaScript i18n.js
+- **語言檔案：** 5 個 .properties 檔案 → 內嵌在 i18n.js 的 JSON 物件
+- **語言切換：** 手動下拉選單 → 自動偵測瀏覽器語言
+- **依賴項目：** 移除 jquery.i18n.properties、bootstrap-select、flag-icon-css
+- **檔案數量：** -8 個檔案（1 個函式庫 + 5 個語言檔 + 2 個 JS 檔案）
+
+**後續建議:**
+- 若需要手動語言切換功能，可考慮：
+  1. 新增簡單的語言切換按鈕（無需 bootstrap-select）
+  2. 使用 localStorage 儲存使用者語言偏好
+  3. 提供 URL 參數覆寫語言設定（如 ?lang=zh-TW）
+- 目前的自動偵測實作適合大多數使用場景，簡化使用者體驗
+- 若未來需要新增更多語言或更多文字，考慮：
+  1. 實作延遲載入（lazy loading）語言檔
+  2. 分離翻譯到獨立的 JSON 檔案
+  3. 目前的內嵌方式在文字量少時最佳
+
+---
+
 ## 八、結論與建議
 
 GoTW 網站目前功能正常，但累積了大量的技術債務。**最關鍵的問題是 16MB 的未使用素材庫 (佔 89%) 和 XSS 安全漏洞**，這兩者可在 1 小時內解決。

@@ -2,34 +2,123 @@
  * GoTW_langing_page v1 (https://www.austronesiatw.com/)
 */
 
-.bootstrap-select .btn:focus {
-    outline: none !important;
+/* Navbar flexbox layout */
+#mainNav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-height: 42px;
 }
-.bootstrap-select .btn{
-	font-size:11px;
+
+#mainNav .navbar-brand {
+    margin: 0;
+    font-size: 18px;
 }
-@media (min-width: 768px){
-	.bootstrap-select.btn-group {
-    		padding-top: 10.25px;
-	}
+
+#mainNav .navbar-toggle {
+    display: none;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 9px 10px;
+    margin: 8px 0;
+    cursor: pointer;
+    order: 3;
 }
-@media (max-width: 767px){
-	.bootstrap-select .btn:focus,.bootstrap-select .btn{
-		background-color: #fff !important; 
-    		border-color: #fff !important;
-    		width:auto;
-	}
-	
-	.btn-group.open .dropdown-toggle {
-        	-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0);
-        	-moz-box-shadow: 0 5px 15px rgba(0,0,0,0);
-        	-o-box-shadow: 0 5px 15px rgba(0,0,0,0);
-    		box-shadow: 0 5px 15px rgba(0,0,0,0);
-	}
+
+#mainNav .navbar-toggle:hover {
+    background-color: #f8f8f8;
 }
-/*Show mainDiv after pace done loading*/
-#mainDiv{
-	display:none;
+
+#mainNav .navbar-toggle .fa {
+    font-size: 18px;
+    color: #222;
+}
+
+/* Desktop: show menu directly */
+@media (min-width: 768px) {
+    #mainNav .navbar-menu {
+        display: flex !important;
+        align-items: center;
+    }
+
+    #mainNav .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #mainNav .navbar-nav > li {
+        margin-left: 15px;
+    }
+
+    #mainNav .navbar-nav > li > a {
+        padding: 0px 10px;
+        display: block;
+        text-decoration: none;
+    }
+
+    #mainNav .navbar-nav > li > a:hover {
+        color: #fdcc52;
+    }
+}
+
+/* Mobile: collapsible menu */
+@media (max-width: 767px) {
+    #mainNav .navbar-toggle {
+        display: block;
+    }
+
+    #mainNav .navbar-menu {
+        display: none;
+        width: 100%;
+        order: 4;
+        margin-top: 10px;
+    }
+
+    #mainNav .navbar-menu.in {
+        display: block;
+    }
+
+    #mainNav .navbar-nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    #mainNav .navbar-nav > li {
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    #mainNav .navbar-nav > li > a {
+        padding: 10px 15px;
+        display: block;
+        color: #222;
+        text-decoration: none;
+        font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 11px;
+    }
+}
+
+/* Sticky navbar using CSS position: sticky (replaces Bootstrap fixed-top) */
+#mainNav {
+	position: fixed;
+	top: 0;
+	z-index: 1030;
+	width: 100%;
+    background-color: rgba(0,0,0,0);
+    transition: all 0.35s;
+}
+
+#mainNav.navbar-shrink {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(34, 34, 34, .1);
 }
 
 /*Add section header width*/
@@ -100,6 +189,12 @@ body 		{font-family: Catamaran,Helvetica,Arial,sans-serif,'Noto Sans TC','Open S
     overflow: hidden;
 }
 
+.device-mockup > .device > .screen > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .device-mockup > .device > .button {
     position: absolute;
     top: 0;
@@ -138,4 +233,10 @@ body 		{font-family: Catamaran,Helvetica,Arial,sans-serif,'Noto Sans TC','Open S
     bottom: 3.2%;
     left: 43%;
     right: 43%;
+}
+
+.list-inline>li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
 }

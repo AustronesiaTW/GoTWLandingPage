@@ -12,7 +12,7 @@
 
     // Highlight the top nav as scrolling occurs
     $('body').scrollspy({
-        target: '.navbar-fixed-top',
+        target: '#mainNav',
         offset: 100
     });
 
@@ -21,11 +21,13 @@
         $('.navbar-toggle:visible').click();
     });
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 50
+    // Navbar shrink on scroll (replaces affix)
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 50) {
+            $('#mainNav').addClass('navbar-shrink');
+        } else {
+            $('#mainNav').removeClass('navbar-shrink');
         }
-    })
+    });
 
 })(jQuery); // End of use strict
