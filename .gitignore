@@ -1,2 +1,12 @@
-node_modules
-bower_components
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*~
+.tmp/

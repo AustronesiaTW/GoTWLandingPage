@@ -27,8 +27,8 @@ var i18nHelper = {
 	UpdateMessages: function(){
 		$('[data-msg]').each(function(){
         		var msg = $(this).data().msg;
-        		$(this).html(eval(msg));
-      		});	
-	
+        		$(this).html(window[msg] || '');
+      		});
+
 	}
 }

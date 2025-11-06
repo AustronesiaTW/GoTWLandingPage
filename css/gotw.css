@@ -71,6 +71,71 @@ body 		{font-family: Catamaran,Helvetica,Arial,sans-serif,'Noto Sans TC','Open S
 :lang(id) 	{font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
 :lang(en)       {font-family: Catamaran,Helvetica,Arial,sans-serif !important;}
 
+/* ============================================
+   Device Mockup - iPhone 6 Plus (extracted from device-mockups library)
+   Only includes the styles actually used on this site
+   ============================================ */
 
+/* Base device mockup structure */
+.device-mockup {
+    position: relative;
+    width: 100%;
+    padding-bottom: 61.775701%;
+}
 
+.device-mockup > .device {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
+.device-mockup > .device > .screen {
+    position: absolute;
+    overflow: hidden;
+}
+
+.device-mockup > .device > .button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: hidden;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    cursor: pointer;
+}
+
+/* iPhone 6 Plus Portrait - White */
+.device-mockup.iphone6_plus,
+.device-mockup.iphone6_plus.portrait {
+    padding-bottom: 201.76%;
+}
+
+.device-mockup.iphone6_plus.portrait.white > .device,
+.device-mockup.iphone6_plus.white > .device {
+    background-image: url(../lib/device-mockups/iphone_6_plus/iphone_6_plus_white_port.png);
+}
+
+.device-mockup.iphone6_plus.portrait > .device > .screen,
+.device-mockup.iphone6_plus > .device > .screen {
+    top: 11.58%;
+    bottom: 11.58%;
+    left: 5.97%;
+    right: 5.97%;
+}
+
+.device-mockup.iphone6_plus.portrait > .device > .button,
+.device-mockup.iphone6_plus > .device > .button {
+    display: block;
+    top: 89.9%;
+    bottom: 3.2%;
+    left: 43%;
+    right: 43%;
+}
