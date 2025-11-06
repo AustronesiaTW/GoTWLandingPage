@@ -23,13 +23,10 @@
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css'>
-    <link rel='stylesheet' href='lib/pace/pace-theme-loading-bar.css'>    
 
     <!-- Theme CSS -->
-    <link href="css/new-age.min.css" rel="stylesheet">
-    <link href="css/gotw.min.css" rel="stylesheet">
+    <link href="css/new-age.css" rel="stylesheet">
+    <link href="css/gotw.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,20 +39,17 @@
 
 <body id="page-top">
     <div id="mainDiv">
-        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <nav id="mainNav" class="navbar navbar-default">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span> Menu 
-                        <i class="fa fa-bars"></i>
-                    </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">GoTW</a>
-                </div>
+                <a class="navbar-brand page-scroll" href="#page-top">GoTW</a>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" lang='en'>
-                    <ul class="nav navbar-nav navbar-right">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <div class="navbar-menu" id="navbar-menu" lang='en'>
+                    <ul class="nav navbar-nav">
                         <li>
                             <a class="page-scroll" href="#download" data-msg="msg_download">Download</a>
                         </li>
@@ -65,20 +59,9 @@
                         <li>
                             <a class="page-scroll" href="#contact" data-msg="msg_contact">Contact</a>
                         </li>
-                        <li>
-                            <select class="selectpicker" id="dropdown-lang" data-width="fit">
-                                <option data-lang="en" lang="en" data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-                                <option data-lang="zh-TW" lang="zh" data-content='<span class="flag-icon flag-icon-tw"></span> 繁體中文'>繁體中文</option>
-                                <option data-lang="vn" lang="vn" data-content='<span class="flag-icon flag-icon-vn"></span> tiếng việt'>tiếng việt</option>
-                                <option data-lang="id" lang="id" data-content='<span class="flag-icon flag-icon-id"></span> Bahasa Indonesia'>Bahasa Indonesia</option>
-                                <option data-lang="kr" lang="kr" data-content='<span class="flag-icon flag-icon-kr"></span> 한국어'>한국어</option>
-                            </select>
-                        </li>
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.container-fluid -->
         </nav>
 
         <header>
@@ -238,14 +221,10 @@
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="lib/jquery-i18n/js/jquery.i18n.properties.min.js"></script>
-    <script src="lib/pace/pace.js"></script>
 
     <!-- Theme JavaScript -->
     <script src="js/new-age.min.js"></script>
-    <!--Read i18nHelper.js first than other theme .js-->
-    <script src="js/i18nHelper.min.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/index.js"></script>
 
 </body>
