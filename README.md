@@ -110,8 +110,8 @@ npx http-server -p 8000
 
 ## 應用程式下載
 
-- **iOS**：[App Store](https://itunes.apple.com/us/app/gotw-taiwan-railway-train-bus/id1197499231)
-- **Android**：[Google Play](https://play.google.com/store/apps/details?id=com.ionicframework.austronesiatwrail742342)
+- **iOS**：[App Store](https://apps.apple.com/app/id6796952580)
+- **Android**：[Google Play](https://play.google.com/store/apps/details?id=com.austronesiatw.gotw)
 
 ## 授權資訊
 
