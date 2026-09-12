@@ -52,25 +52,29 @@ If you edit source files, you can minify them using online tools:
 The site implements lightweight internationalization with automatic language detection:
 
 - **Implementation**: `js/i18n.js` - Pure vanilla JavaScript, no external dependencies
-- **Supported languages**: English (en), Traditional Chinese (zh-TW), Vietnamese (vn), Indonesian (id), Korean (kr)
-- **Auto-detection**: Automatically detects browser language on page load
+- **Supported languages**: English (en), Traditional Chinese (zh-TW), Indonesian (id), Vietnamese (vi), Korean (ko), Thai (th), Tagalog (tl)
+- **Legacy input aliases**: `vn` maps to `vi`, `kr` maps to `ko`, and `fil` maps to `tl`; these aliases must not be written to HTML `lang`
+- **Auto-detection**: Checks `navigator.languages` in preference order, then falls back to `navigator.language`, `navigator.userLanguage`, and English
 - **Translation storage**: All translations stored inline as JSON object in `js/i18n.js`
-- **HTML integration**: Updates all elements with `data-msg` attributes
+- **HTML integration**: Updates all elements with `data-msg` attributes using text nodes only
 
 **How it works**:
-1. On page load, `i18n.js` detects the browser's language preference
-2. Normalizes language codes (e.g., zh-CN → zh-TW, vi → vn, ko → kr)
+1. On page load, `i18n.js` detects the browser's language preference list
+2. Normalizes language codes (e.g., zh-CN → zh-TW, vi-VN → vi, ko-KR → ko, fil-PH → tl)
 3. Finds all elements with `data-msg` attributes
-4. Updates their innerHTML with corresponding translations
-5. Updates `lang` attributes on relevant elements
+4. Updates their text content with corresponding translations and a safe newline renderer
+5. Updates only `document.documentElement.lang` with the selected formal locale
 
 **Only used on**: `index.html` (main landing page)
 **Static content**: privacy.html, term-of-service.html, facebook-data-deletion.html use hardcoded text
+**CTA keys**: `msg_cta_header1` is the complete "Everyone is using GoTW" heading; both CTA buttons use `msg_cta_button`
+**Static English islands**: `Toggle navigation`, contact heading, footer copyright, `Privacy`, and `Terms of Service` intentionally remain English and must each carry their own `lang="en"`
 
 **Adding new languages**:
 1. Add new language object to the `translations` constant in `js/i18n.js`
-2. Add normalization logic in `detectLanguage()` function if needed
+2. Add formal locale and alias rules to the allowlist-based normalization logic if needed
 3. Ensure all message keys are defined (msg_download, msg_features, etc.)
+4. Run `node tests/i18n.test.js`
 
 ### File Structure
 
@@ -111,6 +115,7 @@ The site implements lightweight internationalization with automatic language det
 - After editing `css/new-age.css` or `js/new-age.js`, remember to manually minify to create `.min` versions
 - Language translation is automatic on page load via `js/i18n.js`
 - HTML elements use `data-msg` attributes that map to translation keys in the `translations` object
+- Translation rendering must stay plain-text only; do not introduce HTML parsing for translated strings
 - Only `index.html` uses dynamic i18n; other pages have static content
 - This is a pure static site - no build step required for deployment
 - **Navbar uses CSS sticky** - Modify `#mainNav` styles in `css/gotw.css` for sticky behavior
