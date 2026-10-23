@@ -487,3 +487,5 @@ appnexus.com, 17973, RESELLER, f5ab79cb980f11d1
 bid-matrix.com, f2c71a45ea149366, RESELLER
 bluexad.ai, 1996418805747683328, RESELLER
 copper6.com, 766114, RESELLER
+start.io, 131192070, RESELLER
+monetrix.ai, 10761, RESELLER
